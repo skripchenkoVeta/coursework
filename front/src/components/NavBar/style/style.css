@@ -6,15 +6,13 @@
 .menu{
   
     height: 60px;
-    background: #5d3580;
-  background: -webkit-linear-gradient(-135deg, #5e275a, #4158d0);
-  background: -o-linear-gradient(-135deg, #5e275a, #4158d0);
-  background: -moz-linear-gradient(-135deg, #5e275a, #4158d0);
-  background: linear-gradient(-135deg, #5e275a, #4158d0);
+  background: -webkit-linear-gradient(-135deg, #3f3f3fe5, #6e6e6eda);
+  background: -o-linear-gradient(-135deg, #3f3f3fe5, #6e6e6eda);
+  background: -moz-linear-gradient(-135deg, #3f3f3fe5, #6e6e6eda);
+  background: linear-gradient(-135deg, #3f3f3fe5, #6e6e6eda);
 } 
-a{
+.nav-logo{
 	color: white;
-	font-family: EIisabethische, sans-serif;
 	font-size: 25px;
 	line-height: 1.7;
 	margin: 0px;
@@ -24,11 +22,11 @@ a{
   -moz-transition: all 0.4s;
 }
 
-a:focus {
+.nav-logo:focus {
 	outline: none !important;
 }
 
-a:hover {
+.nav-logo:hover {
 	text-decoration: none;
-  color: #baacdf;
+  color: #464646;
 }

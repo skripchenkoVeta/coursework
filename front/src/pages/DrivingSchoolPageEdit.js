@@ -13,7 +13,6 @@ const DrivingSchoolPageEdit = () => {
     const [drivingschoolCurr, setDrivingSchoolCurr] = useState({});
     const [showMsg, setShowMsg] = useState(false);
     const [msg, setMsg] = useState("");
-
     const [selectBrand, setSelectBrand] = useState({});
     const [selectType, setSelectType] = useState({});
     const [name, setName] = useState("");
@@ -128,7 +127,6 @@ const DrivingSchoolPageEdit = () => {
             <Row>
                 <Col xs={12}>
                    
-                    {/*Brand*/}
                     <Row>
                         <Col xs={1} className="d-flex align-items-center">
                             Форма обучения:
@@ -188,7 +186,6 @@ const DrivingSchoolPageEdit = () => {
                             </Dropdown>
                         </Col>
                     </Row>
-                    {/*Name*/}
                     <Row>
                         <Col xs={1} className="d-flex align-items-center">
                             Название:
@@ -204,7 +201,6 @@ const DrivingSchoolPageEdit = () => {
                             {name.length === 0 && <b style={{color: "red"}}>Пожалуйста введите имя автошколы</b>}
                         </Col>
                     </Row>
-                    {/*Name*/}
                     <Row className="mt-2">
                         <Col xs={1} className="d-flex align-items-center">
                             Стоимость:
@@ -221,7 +217,6 @@ const DrivingSchoolPageEdit = () => {
                         </Col>
                     </Row>
 
-                    {/*Name*/}
                     <Row className="mt-4">
                         <Col xs={3} className="d-flex flex-column justify-content-center text-center">
                             Текущее изображение: <br/>
@@ -240,7 +235,6 @@ const DrivingSchoolPageEdit = () => {
                         </Col>
                     </Row>
 
-                    {/*Characteristics*/}
                     <Row className="d-flex flex-column m-3">
                         <h4>Описание</h4>
                         <Button
@@ -255,7 +249,7 @@ const DrivingSchoolPageEdit = () => {
                                     <Form.Control
                                         placeholder="Введите название"
                                         value={item.title}
-                                        onChange={e => changeInfo('title', e.target.value, item.index)}
+                                        onChange={e => changeInfo('title', e.target.value, item.id)}
                                     />
                                     {!info[index].title &&  <b style={{color: "red"}}>Пожалуйста введите название</b>}
                                 </Col>
@@ -263,14 +257,14 @@ const DrivingSchoolPageEdit = () => {
                                     <Form.Control
                                         placeholder="Введите описание"
                                         value={item.description}
-                                        onChange={e => changeInfo('description', e.target.value, item.index)}
+                                        onChange={e => changeInfo('description', e.target.value, item.id)}
                                     />
                                     {!info[index].description &&  <b style={{color: "red"}}>Пожалуйста введите описание</b>}
                                 </Col>
                                 <Col md={4}>
                                     <Button
                                         variant="outline-danger"
-                                        onClick={() => deleteInfo(item.index)}
+                                        onClick={() => deleteInfo(item.number)}
                                     >
                                         Удалить описание
                                     </Button>

@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
-import {Col, Container, Row} from "react-bootstrap";
-import TypeBar from "../components/TypeBar";
+import {Container} from "react-bootstrap";
+import '../components/NavBar/style/style.css'
 import {Context} from "../index";
 import {fetchBrands, fetchDrivingSchool, fetchTypes} from "../http/drivingschoolAPI";
 import DrivingSchoolTableList from "../components/DrivingSchoolTableList";
@@ -32,9 +32,9 @@ const ReportAll = () => {
     return (
         <Container>
     
-         <h2>Отчёт</h2>
+         <h2 className="header-name">Отчёт</h2>
          <table width={1030}>
-         <tr>
+         <tr className="table-header">
                 <th>Изображение</th>
                 <th>Название</th>
                 <th>Форма обучения</th>

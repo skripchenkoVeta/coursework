@@ -15,7 +15,7 @@ const NavBar = observer(() => {
     return (
         <Navbar className="menu" variant="dark">
             <Container >
-                <NavLink className="menu-item" to={SHOP_ROUTE}>Каталог автошкол</NavLink>
+                <NavLink className="nav-logo" to={SHOP_ROUTE}>Каталог автошкол</NavLink>
                 {user.isAuth ? <TrueAuth/> : <FalseAuth/>}
             </Container>
         </Navbar>
