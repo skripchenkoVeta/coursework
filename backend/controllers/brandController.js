@@ -21,10 +21,10 @@ class BranController {
                 .then( async data => {
                     if(data) {
                         await Brand.destroy({where:{id}}).then(() => {
-                            return res.json("Brand deleted");
+                            return res.json("Форма обучения удалена");
                         })
                     } else {
-                        return res.json("This Brand doesn't exist in DB");
+                        return res.json("Данная форма обучения отсутствует в БД");
                     }
                 })
         } catch (e) {

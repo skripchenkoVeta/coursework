@@ -25,7 +25,7 @@ class RatingController {
                 {where: {id: drivingschoolId}}
             );
 
-            return res.json("Rating success added");
+            return res.json("Спасибо за ваш оценку:)");
         } catch (e) {
             console.error(e);
         }
@@ -46,7 +46,7 @@ class RatingController {
             }
             return res.json({allow: true});
         } catch (e) {
-            return res.status(401).json("Something going wrong in checkAddRatingMiddleware.js");
+            return res.status(401).json("Что-то криптует ошибку в checkAddRatingMiddleware.js");
         }
     }
 }

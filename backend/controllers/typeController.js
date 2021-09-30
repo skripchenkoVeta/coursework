@@ -19,10 +19,10 @@ class TypeController {
                 .then( async data => {
                     if(data) {
                         await Type.destroy({where:{id}}).then(() => {
-                            return res.json("Type deleted");
+                            return res.json("Район удален");
                         })
                     } else {
-                        return res.json("This Type doesn't exist in DB");
+                        return res.json("Данный район отсутсвует в базе данных");
                     }
                 })
         } catch (e) {

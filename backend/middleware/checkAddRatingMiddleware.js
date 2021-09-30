@@ -11,13 +11,13 @@ module.exports = async function (req, res, next) {
         const checkDrivingSchools =  await DrivingSchool.findOne({where: {id: drivingschoolId}});
 
         if (!checkDrivingSchools) {
-            return res.json("Product doesn't existing in data base");
+            return res.json("Автошкола отсутствует в БД");
         } else if(checkRating && checkDrivingSchools) {
-            return res.json("You have left a rating for this product");
+            return res.json("Вы уже поставили рейтинг");
         }
         return next();
     } catch (e) {
-        return res.status(401).json("Something going wrong in checkAddRatingMiddleware.js");
+        return res.status(401).json("Что-то криптануло ошибку в checkAddRatingMiddleware.js");
     }
 };
 

@@ -3,11 +3,11 @@ import {Button, Dropdown, Modal} from "react-bootstrap";
 import {deleteBrand, deleteType, fetchBrands, fetchTypes} from "../../http/drivingschoolAPI";
 
 const DeleteBrandOrType = ({show, onHide, showSuccessMsgFunc}) => {
-    const [brandOrType, setBrandOrType] = useState("Brand");
+    const [brandOrType, setBrandOrType] = useState("Форма обучения");
     const [brands, setBrands] = useState([]);
     const [types, setTypes] = useState([]);
-    const [selectBrand, setSelectBrand] = useState({name: "A Brand not selected"});
-    const [selectType, setSelectType] = useState({name: "A type not selected"});
+    const [selectBrand, setSelectBrand] = useState({name: "Форма обучения не выбрана"});
+    const [selectType, setSelectType] = useState({name: "Район не выбран"});
     const [showMsgErr, setShowMsgErr] = useState(false);
     const [msgErr, setMsgErr] = useState('');
 
@@ -17,26 +17,26 @@ const DeleteBrandOrType = ({show, onHide, showSuccessMsgFunc}) => {
     }, []);
 
     const Delete = async () => {
-        if(brandOrType === "Brand") {
-            if(selectBrand.name !== "A Brand not selected") {
+        if(brandOrType === "Форма обучения") {
+            if(selectBrand.name !== "Форма обучения не выбрана") {
                 await deleteBrand(selectBrand.id).then(data => {
                     showSuccessMsgFunc(data);
                     onHide();
-                    setSelectBrand({name: "A Brand not selectedяя"});
+                    setSelectBrand({name: "Форма обучения не выбрана"});
                 });
             } else {
-                setMsgErr("Please choose Brand");
+                setMsgErr("Выберите форму обучения");
                 setShowMsgErr(true);
             }
         } else {
-            if(selectType.name !== "A Type not selected") {
+            if(selectType.name !== "Район не выбран") {
                 await deleteType(selectType.id).then(data => {
                     showSuccessMsgFunc(data);
                     onHide();
-                    setSelectType({name: "A type not selected"});
+                    setSelectType({name: "Район не выбран"});
                 });
             } else {
-                setMsgErr("Please choose Type");
+                setMsgErr("ВЫберите район");
                 setShowMsgErr(true);
             }
         }
@@ -53,7 +53,7 @@ const DeleteBrandOrType = ({show, onHide, showSuccessMsgFunc}) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title>
-                    Delete Type or Brand
+                    Удалить Форму обучения или Район
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -63,26 +63,26 @@ const DeleteBrandOrType = ({show, onHide, showSuccessMsgFunc}) => {
                     </>
                 }
 
-                Choose Category:
+                Выберите категорию:
                 <Dropdown className="mb-3" style={{margin: "0 auto"}}>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                         {brandOrType}
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                        {brandOrType === "Brand" ? <Dropdown.Item disabled>Brand</Dropdown.Item> : <Dropdown.Item onClick={() => setBrandOrType("Brand")}>Brand</Dropdown.Item>}
-                        {brandOrType === "Type" ? <Dropdown.Item disabled>Type</Dropdown.Item> : <Dropdown.Item onClick={() => setBrandOrType("Type")}>Type</Dropdown.Item>}
+                        {brandOrType === "Форма обучения" ? <Dropdown.Item disabled>Форма обучения</Dropdown.Item> : <Dropdown.Item onClick={() => setBrandOrType("Форма обучения")}>Форма обучения</Dropdown.Item>}
+                        {brandOrType === "Район" ? <Dropdown.Item disabled>Район</Dropdown.Item> : <Dropdown.Item onClick={() => setBrandOrType("Район")}>Район</Dropdown.Item>}
                     </Dropdown.Menu>
                 </Dropdown>
 
-                Choose item of {brandOrType === "Brand" ? "Brand" : "Type"}
+                Выберите элемент {brandOrType === "Форма обучения" ? "Форма обучения" : "Type"}
                 <Dropdown className="mb-3" style={{margin: "0 auto"}}>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        {brandOrType === "Brand" ? selectBrand.name : selectType.name}
+                        {brandOrType === "Форма обучения" ? selectBrand.name : selectType.name}
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                        {brandOrType === "Brand" ?
+                        {brandOrType === "Форма обучения" ?
                             brands.map(({id, name}) =>
                                 selectBrand.name === name ? <Dropdown.Item disabled key={id}>{name}</Dropdown.Item> : <Dropdown.Item  key={id} onClick={() => setSelectBrand({id, name})}>{name}</Dropdown.Item>
                             )
